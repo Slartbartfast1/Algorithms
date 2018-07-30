@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>希尔排序</title>
+</head>
+<body>
+<script>
+    function shellSort(arr) {
+        var len = arr.length;
+        gap = Math.floor(len / 2);
+        while (gap !== 0) {
+            for (var i = gap; i < len; i++) {
+                var temp = arr[i];
+                var j;
+                for (j = i - gap; j >= 0 && temp < arr[j]; j -= gap) {
+                    arr[j + gap] = arr[j];
+                }
+                arr[j + gap] = temp;
+            }
+            gap = Math.floor(gap / 2);
+        }
+        return arr;
+    }
+</script>
+
+</body>
+</html>

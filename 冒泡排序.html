@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>冒泡排序</title>
+</head>
+<body>
+<script>
+    function bubbleSort(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr.length - i - 1; j++) {
+                if (arr[i] < arr[j]) {
+                    [arr[i], arr[j]] = [arr[j], arr[i]];
+                }
+            }
+        }
+        return arr;
+    }
+</script>
+
+</body>
+</html>

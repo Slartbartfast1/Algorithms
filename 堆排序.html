@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>堆排序</title>
+</head>
+<body>
+<script>
+    let b = [2, 3, 5, 54, 2, 1, 4, 5, 3, 23, 12, 54, 56];
+    var heapify = function (arr, heapSize, i) {
+        var left = i * 2 + 1,
+            right = i * 2 + 2,
+            largest = i;
+        if (left < heapSize && arr[left] > arr[largest]) {
+            largest = left;
+        }
+        if (right < heapSize && arr[right] > arr[largest]) {
+            largest = right;
+        }
+        if (largest !== i) {
+            [arr[i], arr[largest]] = [arr[largest], arr[i]];
+            heapify(arr, heapSize, largest);
+        }
+    };
+    var buildHeap = function (arr) {
+        var heapSize = arr.length;
+        for (var i = Math.floor(arr.length / 2); i >= 0; i--) {
+            heapify(arr, heapSize, i);
+        }
+    };
+
+    function heapSort(arr) {
+        var heapSize = arr.length;
+        buildHeap(arr);
+        while (heapSize > 1) {
+            heapSize--;
+            [arr[0], arr[heapSize]] = [arr[heapSize], arr[0]];
+            heapify(arr, heapSize, 0);
+        }
+    }
+</script>
+
+</body>
+</html>
