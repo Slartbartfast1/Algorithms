@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>最小硬币找零问题</title>
+</head>
+<body>
+<script>
+    function MinCoinChange(coins) {
+        var coins = coins;
+        var cache = {};                                 //缓存
+
+
+        this.makeChange = function (amount) {
+            var me = this;
+            if (!amount) {
+                return [];
+            }
+            if (cache[amount]) {
+                return cache[amount];                   //判断是否在缓存中
+            }
+            var min = [], newMin, newAmount;
+            for (var i = 0; i < coins.length; i++) {
+                var coin = coins[i];
+                newAmount = amount - coin;
+                if (newAmount >= 0) {
+                    newMin = me.makeChange(newAmount);  //递归直到newAmount减到0
+                }
+                if (                                    //递归完成后进行判断寻找最优
+                    newAmount >= 0 &&                   //找零后的金额不能小于0
+                    (newMin.length < min.length - 1 || !min.length) && //把当下的找零数量和之前的比较,较小则留
+                    (newMin.length || !newAmount)       //newMin必须有值
+                ) {
+                    min = [coin].concat(newMin);
+                    console.log("new min " + min + "for" + amount);
+                }
+            }
+            return (cache[amount] = min);               //返回为缓存
+        }
+    }
+    var test  = new MinCoinChange([1,8,11,22]);
+    console.log(test.makeChange(423));
+</script>
+</body>
+</html>
