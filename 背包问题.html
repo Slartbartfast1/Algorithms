@@ -6,6 +6,7 @@
 </head>
 <body>
 <script>
+    //矩阵算法
     function knapSack(weights, values, w){
         var n = weights.length -1;//获取物品个数
         var f=[[]];//定义f的矩阵
@@ -32,6 +33,21 @@
         }
         return f[n][w];
     }
+    //贪心算法 分数背包问题
+    function knapSack2(capacity,values,weights){
+        var n=values.length,load=0,i=0,val=0;
+        for(i=0;i<n&&load<capacity;i++){
+            if(weights[i]<=(capacity-load)){
+                val+=values[i];
+                load+=weight[i];
+            }else{
+                var a=(capacity-load)/weights[i];
+                val+=a*values[i];
+                load+=weights[i];
+            }
+        }return w;
+    }
+
 
 </script>
 
