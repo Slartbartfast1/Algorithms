@@ -23,12 +23,12 @@
                     continue
                 }
                 if (rows[i] === cols[j]) {
-                    dp[i][j] = dp[i - 1][j - 1] + 1 //对角＋1
+                    dp[i][j] = dp[i - 1][j - 1] + 1
                 } else {
-                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]) //对左边，上边取最大
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1])
                 }
             }
-            console.log(dp[i].join(""))//调试
+            console.log(dp[i].join(""))
         }
         return dp[i - 1][j - 1]
     }
