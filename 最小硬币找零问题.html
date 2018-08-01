@@ -6,11 +6,10 @@
 </head>
 <body>
 <script>
+    //矩阵算法
     function MinCoinChange(coins) {
         var coins = coins;
         var cache = {};                                 //缓存
-
-
         this.makeChange = function (amount) {
             var me = this;
             if (!amount) {
@@ -38,8 +37,21 @@
             return (cache[amount] = min);               //返回为缓存
         }
     }
-    var test  = new MinCoinChange([1,8,11,22]);
-    console.log(test.makeChange(423));
+    //贪心算法
+    function MinCoinChange2(coins){
+        var coins=coins;
+        this.makeChange=function(amount){
+            var change=[],
+            total=0;
+            for(var i=coins.length;i>=0;i--){
+                var coin=coins[i];
+                while(total+coin<=amount){
+                    total+=coin;
+                    change.push(coin);
+                }
+            }return change;
+        }
+    }
 </script>
 </body>
 </html>
