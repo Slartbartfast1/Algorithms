@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //去重
+Array.prototype.uniq=function() {
+    var res = [],
+        hashTable = {};
+    for (let i = 0; i < this.length; i++) {
+        if (!hashTable[this[i]]) {
+            hashTable[this[i]] = true;
+            res.push(this[i]);
+        }
+    }return res;
+}
+
+    var arr1 = [21, 3, 3, 3, 34, 45, 121, 65, 7, 6, 67];
+    console.log(arr1.uniq());
+</script>
+<script>
+
+    //返回字符串中最多出现的字符
+    String.prototype.findMaxDuplicateChar=function(){
+
+        if (this.length == 1) {
+            return str;
+        }
+        let res={};
+        for(let i=0;i<this.length;i++){
+            if(!res[this[i]]){
+                res[this[i]]=1;
+            }else{
+                res[this[i]]+=1;
+            }
+        }
+        let maxTimes=1,maxChar='';
+        for(var k in res){
+            if(res[k]>=maxTimes){
+                maxChar=k;
+                maxTimes=res[k];
+            }
+        }
+        return maxChar;
+    };
+
+    var str1 = 'qwedasdasdadasddddssssssssssssssssssssssssddasdadsd';
+    console.log(str1.findMaxDuplicateChar());
+    console.log(str1[1])
+</script>
+</body>
+</html>
