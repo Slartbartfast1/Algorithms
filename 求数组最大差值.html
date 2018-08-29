@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>求数组中最大差值</title>
+</head>
+<body>
+<script>
+    Array.prototype.findMaxProfit=function(){
+        let minPrice=this[0],
+            maxProfit=0;
+        for(let i=0;i<this.length;i++){
+            currentPrice=this[i];
+            minPrice=Math.min(currentPrice,minPrice);
+            let potentialProfit=currentPrice-minPrice;
+            maxProfit=Math.max(potentialProfit,maxProfit)
+        }
+        return [maxProfit,minPrice];
+
+    }
+    var arr1=[123,32,4,54,87,9,6,45,12,77];
+    console.log(arr1.findMaxProfit());
+
+
+
+</script>
+</body>
+</html>
