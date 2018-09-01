@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bind的实现</title>
+</head>
+<body>
+
+<script>
+
+Function.prototype.bind = function(newThis) {
+    var aArgs = Array.prototype.slice.call(arguments, 1)
+    var that = this  //that始终指向调用bind的对象
+    var NoFunc = function () {}//创建一个盘子用于原型链传递
+    var resultFunc = function () {
+        return that.apply(this instanceof that ? this : newThis, aArgs.concat(Array.prototype.slice.call(arguments)))
+        //aArgs.concat(Array.prototype.slice.call(arguments))表示参数拼接
+        //this instanceof that ? this : newThis这段代码的作用是判断调用func()时的执行环境；直接调用func()的时候，this指向的是全局对象；
+        //如果是通过构造函数调用的话，this指向改变。
+    }
+    NoFunc.prototype = that.prototype //that指向调用bind方法的对象，即.bind之前的对象
+    resultFunc.prototype = new NoFunc()
+    //上面两行代码相当于将得到的新对象的原型指向原对象
+    //如果直接用‘resultFunc.prototype=that.prototype’的话会使得新对象能直接修改原型链属性，造成原型链污染。
+    return resultFunc
+}
+
+</script>
+</body>
+</html>
