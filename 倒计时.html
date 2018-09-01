@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function dayBetween() {
+        var today = new Date(),
+            enday = new Date(2019, 9, 1, 12, 12, 12),
+            between = enday - today,
+            day = Math.floor(between / 1000 / 60 / 60 / 24),
+            hour = Math.floor(between / 1000 / 60 / 60 / 24 % 24),
+            minute = Math.floor(between / 1000 / 60 % 60),
+            seconds = Math.floor(between / 1000 % 60);
+        if (between === 0) {
+            console.log('时间到了')
+        } else {
+            console.log('离时间结束还有' + day + '天' + hour + '小时' + minute + '分钟' + seconds + '秒')
+        }
+    }
+
+    setInterval(dayBetween, 1000);
+</script>
+</body>
+</html>
