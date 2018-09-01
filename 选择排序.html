@@ -6,20 +6,24 @@
 </head>
 <body>
 <script>
-    function selectSort(arr){
-        var indexMin;
-        for(var i=0;i<arr.length-1;i++){
-            indexMin=i;
-            for(var j=i;j<arr.length;j++){
-                if(arr[j]<arr[indexMin]){
-                    indexMin=j;
-                }
+function selectionSort(arr){
+    var len=arr.length,
+        minIndex;
+    for(var i=0;i<len-1;i++){
+        minIndex=i;
+        for(var j =i;j<len;j++){
+            if(arr[minIndex]>arr[j]){
+                minIndex=j;
             }
-            if(i!==indexMin){
-                [arr[i],arr[indexMin]]=[arr[indexMin],arr[i]];
-            }
-        }return arr;
+        }
+        if(minIndex!==i){
+            [arr[i],arr[minIndex]]=[arr[minIndex],arr[i]]
+        }
     }
+    return arr;
+
+}
+
 </script>
 
 </body>
