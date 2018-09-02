@@ -20,7 +20,7 @@
             args.push(arguments[i])
         }
         var res=eval('toCall.fn('+args+')');
-        delete fn.fn;
+        delete toCall.fn;
         return res;
     }
 
