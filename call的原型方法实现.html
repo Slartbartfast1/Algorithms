@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>call方法的原型实现</title>
+</head>
+<body>
+<script>
+    /*原理:
+1.将函数设为对象的属性
+2.执行该函数
+3.删除该函数
+    *
+    * */
+    Function.prototype.myCall=function(toCall){
+        toCall.fn=this;
+        let args=[];
+        let len=arguments.length;
+        for(let i=0;i<len;i++){
+            args.push(arguments[i])
+        }
+        var res=eval('toCall.fn('+args+')');
+        delete fn.fn;
+        return res;
+    }
+
+
+</script>
+</body>
+</html>

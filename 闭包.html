@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+</head>
+<body>
+<script>
+function add(){
+    var count=0;
+    return function(){
+        count+=1;
+        alert(count)
+    }
+}
+var bb=add();
+bb();
+bb();
+</script>
+</body>
+</html>
