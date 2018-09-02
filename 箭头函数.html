@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Person(){
+        this.age=100;
+        setInterval(()=>{console.log(this.age++)},1000)
+        //箭头函数不会创建自己的this,它只会从自己的作用域链的上一层继承this
+    }
+    Person();
+
+    'use strict';
+    var obj = {
+        a: 10
+    };
+
+    Object.defineProperty(obj, "b", {
+        get: () => {
+            console.log(this.a, typeof this.a, this);
+            return this.a+10;
+            // 代表全局对象 'Window', 因此 'this.a' 返回 'undefined'
+        }
+    });
+</script>
+</html>
