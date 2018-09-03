@@ -6,7 +6,9 @@
 </head>
 <body>
 <script>
+
     var count = 999;
+
     function add() {
         var count = 0;
         return function () {
@@ -18,15 +20,15 @@
 </script>
 <script>
     //用闭包原理本地化i
-    function foo(num){
-        for (var i=0;i<num;i++){
-           !function(){
+    function foo(num) {
+        for (var i = 0; i < num; i++) {
+            !function () {
                 console.log(i)
             }(i);
         }
     }
-    foo(10);
 
+    foo(10);
 
 
 </script>
