@@ -11,13 +11,23 @@
         obj=parent.prototype;
         child.prototype=new obj();
         child.prototype.constructor=child;
-        
     }
 </script>
 <script>
     function extend(child,parent){
-        child.__proto__=Object.create(parent.prototype)
+        child.prototype=Object.create(parent.prototype)
     }
+
+</script>
+<script>
+    function extend(parent,child){
+        let p=parent.prototype;
+        let c=child.prototype;
+        for(let k in p){
+            c[k]=p[k];
+        }
+    }
+
 </script>
 </body>
 </html>
