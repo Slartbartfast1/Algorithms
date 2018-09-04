@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>封装原型继承</title>
+    <title>原型继承</title>
 </head>
 <body>
 <script>
@@ -11,8 +11,13 @@
         obj=parent.prototype;
         child.prototype=new obj();
         child.prototype.constructor=child;
+        
     }
 </script>
-
+<script>
+    function extend(child,parent){
+        child.__proto__=Object.create(parent.prototype)
+    }
+</script>
 </body>
 </html>
