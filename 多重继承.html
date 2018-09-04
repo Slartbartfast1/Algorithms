@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多重继承</title>
+</head>
+<body>
+<script>
+    function multi(){
+        let obj={},
+            stuff;
+        for(let i=0;i<arguments.length;i++){
+            stuff=arguments[j];
+            for(var k in stuff){
+                if(stuff.hasOwnProperty(k)){
+                    obj[k]=stuff[k];
+                }
+            }
+        }
+        return obj;
+    }
+</script>
+</body>
+</html>
