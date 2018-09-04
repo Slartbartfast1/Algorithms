@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浅拷贝和深拷贝</title>
+</head>
+<body>
+<script>
+    // 浅拷贝
+    var b;
+    var a=b;
+    //深拷贝
+    //#1 递归方法
+    function deepCopy(obj){
+        var res=Array.isArray(obj)?[]:{};
+        for(var k in obj){
+            if(obj.hasOwnProperty(k)){
+                if(obj[k]&&typeof obj[k]==='object'){
+                    res[k]=deepCopy(obj[k])
+                }else{
+                    res[k]=obj[k]
+                }
+            }
+        }
+        return res;
+    }
+    //#2 json方法
+    function deepCopy2(obj){
+        return json.parse(json.stringify(obj))
+    }
+    //#3
+</script>
+
+</body>
+</html>
