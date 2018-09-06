@@ -6,16 +6,44 @@
 </head>
 <body>
 <script>
-    var p=new Promise(function(resolve,reject){
-        setTimeout(function(){
+    var p = new Promise(function (resolve, reject) {
+        setTimeout(function () {
             resolve('成功了')
-        },1000)
+        }, 1000)
     })
-    p.then(function(data){
-        console.log('哈哈',data)
-    }),function(err){
-        console.log('..',err)
+    p.then(function (data) {
+        console.log('哈哈', data)
+    }), function (err) {
+        console.log('..', err)
     }
+</script>
+<script>
+    //AJAX
+    var getJSON = function (url) {
+        var promise = new Promise(function (resolve, reject) {
+            var XHR = new XMLHttpRequest();
+            XHR.open("GET", url);
+            XHR.onreadystatechange = function () {
+                if (this.readyState !== 4) {
+                    return;
+                }
+                if (this.status == 200) {
+                    resolve(this.response);
+                } else {
+                    reject(new Error(this.statusText));
+                }
+            };
+            XHR.responseType = "json";
+            XHR.setRequestHeader("Accept", "application/json");
+            XHR.send();
+        });
+        return promise;
+    };
+    getJSON("posts.json").then(function (json) {
+        console.log("Contents : " + json);
+    }, function (error) {
+        console.log("出错了", error);
+    });
 </script>
 </body>
 </html>
