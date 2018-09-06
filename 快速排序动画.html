@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>排序动画</title>
+    <style>
+        .container {
+            text-align: center;
+        }
+
+        .container div {
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            border: 1px black solid;
+            line-height: 50px;
+            transition: .3s;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+</div>
+<script>
+    var arr = [12, 2, 5, 32, 45, 12, 2, 4, 4, 6];
+    var len = arr.length;
+    var container = document.querySelector('.container');
+    for (let i = 0; i < len; i++) {
+        var temp = document.createElement('div');
+        temp.id = i;
+        temp.style.left = 60 * i + 'px';
+        temp.innerHTML = arr[i];
+        container.appendChild(temp);
+    }
+
+
+    var time = 1;
+    for (let i = 0; i < len; i++) {
+        for (let j = 0; j < len - i; j++) {
+            if (arr[j] > arr[j + 1]) {
+                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                setTimeout(function () {
+                    let x = document.getElementById(j);
+                    let y = document.getElementById(j + 1);
+                    [x.style.left, y.style.left] = [y.style.left, x.style.left];
+                    [x.id, y.id] = [y.id, x.id];
+                }, 1000 * time);
+                time++;
+            }
+        }
+    }
+
+
+
+
+</script>
+
+</body>
+</html>
