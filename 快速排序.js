@@ -12,12 +12,9 @@ function quick(array, left, right) {
     return array;
 }
 
-function quickSort(array) {
-    return quick(array, 0, array.length - 1);
-};
 
 function partition(array, left, right) {
-    
+
     const pivot = array[Math.floor((right + left) / 2)];
     let i = left;
     let j = right;
@@ -38,6 +35,10 @@ function partition(array, left, right) {
     return i;
 }
 
+function swap(array, a, b) {
+    [array[a], array[b]] = [array[b], array[a]];
+}
+
 // 比较函数
 function compare(a, b) {
     if (a === b) {
@@ -45,3 +46,7 @@ function compare(a, b) {
     }
     return a < b ? -1 : 1;
 }
+
+function quickSort(array) {
+    return quick(array, 0, array.length - 1);
+};
