@@ -7,8 +7,8 @@
 <body>
 <script>
     function dayBetween() {
-        var today = new Date(),
-            enday = new Date(2019, 9, 1, 12, 12, 12),
+        var today = performance.timeOrigin + performance.now(),
+            enday = new Date(2019, 8, 8, 12, 12, 12,12),
             between = enday - today,
             day = Math.floor(between / 1000 / 60 / 60 / 24),
             hour = Math.floor(between / 1000 / 60 / 60 / 24 % 24),
@@ -19,9 +19,12 @@
         } else {
             console.log('离时间结束还有' + day + '天' + hour + '小时' + minute + '分钟' + seconds + '秒')
         }
+        console.log(today)
     }
-
     setInterval(dayBetween, 1000);
 </script>
+
+
+
 </body>
 </html>
