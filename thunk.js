@@ -1,4 +1,3 @@
-
 function thunkify(fn){
     return function(){
         var args = new Array(arguments.length);
