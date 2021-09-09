@@ -47,9 +47,6 @@
 //     return a < b ? -1 : 1;
 // }
 
-// function quickSort(array) {
-//     return quick(array, 0, array.length - 1);
-// };
 
 function quickSort(arr) {
     if (arr.length <= 1) {

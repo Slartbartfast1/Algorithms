@@ -1,0 +1,22 @@
+{
+  "name": "algorithms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Generator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Slartbartfast1/Algorithms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Slartbartfast1/Algorithms/issues"
+  },
+  "homepage": "https://github.com/Slartbartfast1/Algorithms#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  }
+}
